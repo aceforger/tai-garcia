@@ -51,20 +51,54 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Logo */}
+          {/* Logo with Door-Shaped Profile Image */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="group flex items-center gap-2"
+            className="group flex items-center gap-3"
           >
+            {/* Door-shaped Profile Image */}
+            <div className="relative w-13 h-20 md:w-18 md:h-22 overflow-hidden border-2 border-[#D4A853]/30 group-hover:border-[#D4A853]/60 transition-all duration-300 shadow-sm flex-shrink-0 bg-[#EDE8E0]">
+              <img
+                src="/images/profile.png"
+                alt={authorInfo.name}
+                className="w-full h-full object-contain p-.1"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.parentElement.classList.add(
+                    "bg-gradient-to-br",
+                    "from-[#D4A853]/20",
+                    "to-[#F5F0EB]",
+                    "flex",
+                    "items-center",
+                    "justify-center",
+                  );
+                  e.target.parentElement.innerHTML = `
+        <span class="text-xl font-dm-serif text-gold-gradient">TG</span>
+      `;
+                }}
+              />
+              {/* Inner shadow for depth */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  boxShadow: "inset 0 0 10px rgba(0,0,0,0.08)",
+                  borderRadius: "40px 40px 10px 10px",
+                }}
+              ></div>
+            </div>
+
+            {/* Star ornament */}
             <motion.span
               whileHover={{ rotate: 180 }}
               transition={{ duration: 0.5 }}
-              className="text-[#D4A853] text-lg"
+              className="text-[#D4A853] text-lg hidden sm:block"
             >
               ✦
             </motion.span>
-            <span className="font-dm-serif text-2xl md:text-3xl tracking-tight text-[#1A1A1A] group-hover:text-[#D4A853] transition-colors font-bold">
+
+            {/* Name */}
+            <span className="font-dm-serif text-xl md:text-2xl tracking-tight text-[#1A1A1A] group-hover:text-[#D4A853] transition-colors font-bold">
               {authorInfo.name}
             </span>
           </a>
