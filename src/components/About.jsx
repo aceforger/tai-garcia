@@ -222,7 +222,7 @@ export default function About() {
 
               <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-white">
                 <img
-                  src="/images/profile3.png"
+                  src="/images/profile.jpeg"
                   alt={authorInfo.fullName}
                   className="w-full h-full object-cover"
                   onError={(e) => {

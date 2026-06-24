@@ -60,7 +60,7 @@ export default function Navbar() {
             {/* Door-shaped Profile Image */}
             <div className="relative w-13 h-20 md:w-18 md:h-22 overflow-hidden border-2 border-[#D4A853]/30 group-hover:border-[#D4A853]/60 transition-all duration-300 shadow-sm flex-shrink-0 bg-[#EDE8E0]">
               <img
-                src="/images/profile.png"
+                src="/images/profile2.jpeg"
                 alt={authorInfo.name}
                 className="w-full h-full object-contain p-.1"
                 onError={(e) => {
