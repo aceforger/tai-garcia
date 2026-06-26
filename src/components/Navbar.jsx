@@ -49,20 +49,23 @@ export default function Navbar() {
           : "bg-[#F5F0EB]/58"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20 md:h-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
           {/* Logo with Door-Shaped Profile Image */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="group flex items-center gap-3"
+            className="group flex items-center gap-2 sm:gap-3"
           >
             {/* Door-shaped Profile Image */}
-            <div className="relative w-13 h-20 md:w-18 md:h-22 overflow-hidden border-2 border-[#D4A853]/30 group-hover:border-[#D4A853]/60 transition-all duration-300 shadow-sm flex-shrink-0 bg-[#EDE8E0]">
+            <div
+              className="relative w-10 h-14 sm:w-12 sm:h-16 md:w-14 md:h-20 overflow-hidden border-2 border-[#D4A853]/30 group-hover:border-[#D4A853]/60 transition-all duration-300 shadow-sm flex-shrink-0 bg-[#EDE8E0]"
+              style={{ borderRadius: "30px 30px 8px 8px" }}
+            >
               <img
                 src="/images/profile2.jpeg"
                 alt={authorInfo.name}
-                className="w-full h-full object-contain p-.1"
+                className="w-full h-full object-cover"
                 onError={(e) => {
                   e.target.style.display = "none";
                   e.target.parentElement.classList.add(
@@ -74,8 +77,8 @@ export default function Navbar() {
                     "justify-center",
                   );
                   e.target.parentElement.innerHTML = `
-        <span class="text-xl font-dm-serif text-gold-gradient">TG</span>
-      `;
+                    <span class="text-sm sm:text-base md:text-xl font-dm-serif text-gold-gradient">TG</span>
+                  `;
                 }}
               />
               {/* Inner shadow for depth */}
@@ -83,34 +86,34 @@ export default function Navbar() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   boxShadow: "inset 0 0 10px rgba(0,0,0,0.08)",
-                  borderRadius: "40px 40px 10px 10px",
+                  borderRadius: "30px 30px 8px 8px",
                 }}
               ></div>
             </div>
 
-            {/* Star ornament */}
+            {/* Star ornament - hidden on small screens */}
             <motion.span
               whileHover={{ rotate: 180 }}
               transition={{ duration: 0.5 }}
-              className="text-[#D4A853] text-lg hidden sm:block"
+              className="text-[#D4A853] text-base sm:text-lg hidden xs:block"
             >
               ✦
             </motion.span>
 
             {/* Name */}
-            <span className="font-dm-serif text-xl md:text-2xl tracking-tight text-[#1A1A1A] group-hover:text-[#D4A853] transition-colors font-bold">
+            <span className="font-dm-serif text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight text-[#1A1A1A] group-hover:text-[#D4A853] transition-colors font-bold">
               {authorInfo.name}
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative px-5 py-3 text-sm font-roboto-slab font-bold transition-all tracking-[0.15em] uppercase rounded-lg ${
+                className={`relative px-3 lg:px-5 py-2 lg:py-3 text-xs lg:text-sm font-roboto-slab font-bold transition-all tracking-[0.1em] lg:tracking-[0.15em] uppercase rounded-lg ${
                   activeSection === link.href.replace("#", "")
                     ? "text-[#D4A853] bg-[#f7f7f7]"
                     : "text-[#070707] hover:text-[#1A1A1A] hover:bg-[#1A1A1A]/5"
@@ -120,7 +123,7 @@ export default function Navbar() {
                 {activeSection === link.href.replace("#", "") && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-[3px] bg-gradient-to-r from-[#D4A853] to-[#E8C55A] rounded-full"
+                    className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 lg:w-6 h-[3px] bg-gradient-to-r from-[#D4A853] to-[#E8C55A] rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -132,10 +135,10 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-3 text-[#1A1A1A] hover:bg-[#1A1A1A]/5 rounded-lg transition-colors"
+            className="md:hidden p-2 sm:p-3 text-[#1A1A1A] hover:bg-[#1A1A1A]/5 rounded-lg transition-colors"
           >
             <svg
-              className="w-7 h-7"
+              className="w-6 h-6 sm:w-7 sm:h-7"
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
@@ -168,7 +171,7 @@ export default function Navbar() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
-              <div className="bg-white/98 backdrop-blur-xl border-2 border-[#D4A853]/15 mt-3 p-6 rounded-2xl shadow-2xl">
+              <div className="bg-white/98 backdrop-blur-xl border-2 border-[#D4A853]/15 mt-2 sm:mt-3 p-4 sm:p-6 rounded-2xl shadow-2xl">
                 {navLinks.map((link, i) => (
                   <motion.a
                     key={link.name}
@@ -177,7 +180,7 @@ export default function Navbar() {
                     transition={{ delay: i * 0.08 }}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block px-5 py-4 font-roboto-slab text-base font-bold uppercase tracking-[0.15em] rounded-xl transition-all ${
+                    className={`block px-4 sm:px-5 py-3 sm:py-4 font-roboto-slab text-sm sm:text-base font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] rounded-xl transition-all ${
                       activeSection === link.href.replace("#", "")
                         ? "text-[#D4A853] bg-[#D4A853]/10 border-l-4 border-[#D4A853]"
                         : "text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-[#1A1A1A]/5"
