@@ -71,7 +71,7 @@ export default function Hero() {
                 <img
                   src={book.coverImage}
                   alt={book.title}
-                  className="w-44 h-60 sm:w-52 sm:h-72 md:w-60 md:h-80 lg:w-64 lg:h-88 object-contain rounded-lg"
+                  className="w-54 h-70 sm:w-62 sm:h-82 md:w-60 md:h-80 lg:w-74 lg:h-78 object-contain rounded-lg"
                   style={{
                     transform: "rotateY(-4deg) rotateX(2deg)",
                     filter:
