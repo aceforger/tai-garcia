@@ -19,7 +19,8 @@ export default function Hero() {
         <img
           src="/images/bg.png"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ minWidth: "100%", minHeight: "100%" }}
           onError={(e) => {
             e.target.style.display = "none";
           }}
